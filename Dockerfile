@@ -111,17 +111,7 @@ RUN echo "Installing sdk tools ${ANDROID_SDK_TOOLS_VERSION}" && \
     yes | "$ANDROID_HOME"/tools/bin/sdkmanager \
         "platforms;android-28" \
         "platforms;android-27" \
-        "platforms;android-26" \
-        "platforms;android-25" \
-        "platforms;android-24" \
-        "platforms;android-23" \
-        "platforms;android-22" \
-        "platforms;android-21" \
-        "platforms;android-20" \
-        "platforms;android-19" \
-        "platforms;android-18" \
-        "platforms;android-17" \
-        "platforms;android-16" > /dev/null && \
+        "platforms;android-26" > /dev/null && \
     echo "Installing platform tools " && \
     yes | "$ANDROID_HOME"/tools/bin/sdkmanager \
         "platform-tools" > /dev/null && \
@@ -170,7 +160,7 @@ RUN echo "Installing sdk tools ${ANDROID_SDK_TOOLS_VERSION}" && \
     rm -f sdk.install.sh && \
     # Install Flutter sdk
     cd /opt && \
-    wget --quiet https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz -O flutter.tar.xz && \
+    wget --quiet https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.7.8+hotfix.4-stable.tar.xz -O flutter.tar.xz && \
     tar xf flutter.tar.xz && \
     rm -f flutter.tar.xz && \
     flutter config --no-analytics
