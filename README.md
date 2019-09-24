@@ -40,16 +40,14 @@ It includes the following components:
 * Ruby, RubyGems
 * fastlane
 * Kotlin 1.3
-* Flutter 1.5.4
+* Latest Flutter stable
 
 
 ## Docker Pull
 
 The docker image is publicly automated build on [Docker Hub](https://hub.docker.com/r/mingc/android-build-box/) based on the Dockerfile in this repo, so there is no hidden stuff in it. To pull the latest docker image:
 
-    docker pull mingc/android-build-box:latest
-
-**Hint:** Use tag to sepecific a stable version rather than `latest` of docker image to avoid break your buid. e.g. `mingc/android-build-box:1.11.0`. Checkout **Tags** (bottom of this page) to see all the available tags.
+    docker pull ykorzikowski/docker-android-build-box:latest
 
 ## Usage
 
@@ -58,11 +56,11 @@ The docker image is publicly automated build on [Docker Hub](https://hub.docker.
 You can use this docker image to build your Android project with a single docker command:
 
     cd <android project directory>  # change working directory to your project root directory.
-    docker run --rm -v `pwd`:/project mingc/android-build-box bash -c 'cd /project; ./gradlew build'
+    docker run --rm -v `pwd`:/project ykorzikowski/docker-android-build-box bash -c 'cd /project; ./gradlew build'
 
 Run docker image with interactive bash shell:
 
-    docker run -v `pwd`:/project -it mingc/android-build-box bash
+    docker run -v `pwd`:/project -it ykorzikowski/docker-android-build-box bash
 
 
 ### Use the image for a Bitbucket pipeline
@@ -70,7 +68,7 @@ Run docker image with interactive bash shell:
 If you have an Android project in a Bitbucket repository and want to use its pipeline to build it, you can simply specify this docker image.
 Here is an example of `bitbucket-pipelines.yml`
 
-    image: mingc/android-build-box:latest
+    image: ykorzikowski/docker-android-build-box:latest
 
     pipelines:
       default:

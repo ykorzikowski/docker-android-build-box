@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Ming Chen
+MAINTAINER Yannik Korzikowski
 
 ENV ANDROID_HOME="/opt/android-sdk" \
     ANDROID_NDK="/opt/android-ndk" \
@@ -163,7 +163,8 @@ RUN echo "Installing sdk tools ${ANDROID_SDK_TOOLS_VERSION}" && \
     wget --quiet https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.7.8+hotfix.4-stable.tar.xz -O flutter.tar.xz && \
     tar xf flutter.tar.xz && \
     rm -f flutter.tar.xz && \
-    flutter config --no-analytics
+    flutter config --no-analytics && \
+    flutter upgrade
 
 
 # Copy sdk license agreement files.
